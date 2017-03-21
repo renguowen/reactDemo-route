@@ -1,0 +1,25 @@
+#app{
+    margin:0 auto;
+    width:100%;
+    padding:0 50px;
+}
+
+.list li{
+    height: 30px;
+    padding:10px 0;
+}
+.empty{
+    padding:10px 0;
+    text-align: center;
+}
+
+.list .ant-btn{
+    display:none;
+    vertical-align: top;
+}
+
+#login{
+    clear: both;
+    margin:50px auto;
+    padding: 0 50px;
+}
