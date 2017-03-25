@@ -4,7 +4,14 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import App from'./components/app.js';
+import LoginS from'./components/login/LoginS';
+
+// import App from'./components/app';
+import AppS from'./containers/app';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+
+import {Provider} from 'react-redux'
+import store from './store';
 
 
 import './css/index.css'
@@ -13,11 +20,19 @@ import './css/index.css'
 //     <Component1/>,
 //     document.getElementById('content')
 // );
+
 ReactDom.render(
-    <App/>,
+    <Provider store={store}>
+        <Router>
+            <div>
+                <Route exact path="/" component={LoginS}/>
+                <Route path="/app" component={AppS}/>
+            </div>
+        </Router>
+    </Provider>
+    ,
     document.getElementById('app')
 );
-
 
 
 //没装Babel,react时的方法

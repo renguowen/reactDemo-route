@@ -1,14 +1,16 @@
 /**
- * Created by Elliott on 2017/3/17.
+ * Created by Elliott on 2017/3/23.
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import DelButton from './DelButton.js';
 import {Checkbox, Button } from 'antd';
+import { connect } from 'react-redux'
+import {checkItem,deleteItem} from '../actions/actionCreators'
+
 
 class Item extends React.Component{
     handlerChange() {
-        let isDone = !this.props.oneItem.isDone;
+        let isDone = !this.props.isDone;
         this.props.checkItem(this.props.index, isDone);
     }
     handlerDelete() {
@@ -21,16 +23,33 @@ class Item extends React.Component{
         ReactDOM.findDOMNode(this.refs.delButton).style.display = 'none'
     }
     render(){
+
         return (
             <li onMouseOver={this.handlerMouseIn.bind(this)} onMouseOut={this.handlerMouseOut.bind(this)}>
-                <Checkbox checked={this.props.oneItem.isDone} onClick={this.handlerChange.bind(this)}/>
-                <span>{this.props.oneItem.text}</span>
+                <Checkbox checked={this.props.isDone} onChange={this.handlerChange.bind(this)}/>
+                <span>{this.props.text}</span>
                 <Button ref="delButton" type="danger" size="small" onClick={this.handlerDelete.bind(this)}>删除</Button>
             </li>
         )
     }
-    
 }
-// <button onClick={this.handlerDelete.bind(this)}>del</button>
-// <DelButton ref="delButton" index={this.props.index}  {...this.props}/>
-export default Item;
+const mapStateToProps = (state,ownProps) => ({
+    currentUser: state.currentUser,
+    index:ownProps.index,
+    isDone:ownProps.isDone,
+    text:ownProps.text
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    checkItem:(index,isdone)=>{
+        dispatch(checkItem(index,isdone));
+    },
+    deleteItem:(index)=>{
+        dispatch(deleteItem(index));
+    }
+})
+const ItemS= connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Item)
+export default ItemS;
