@@ -4,38 +4,24 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import LoginS from'./components/login/LoginS';
-
+import Login from'./components/login/Login';
+import './css/index.styl'
 // import App from'./components/app';
-import AppS from'./containers/app';
+import App from'./containers/app';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import {Provider} from 'react-redux'
 import store from './store';
 
-
-import './css/index.css'
-
-// ReactDom.render(
-//     <Component1/>,
-//     document.getElementById('content')
-// );
-
 ReactDom.render(
     <Provider store={store}>
         <Router>
             <div>
-                <Route exact path="/" component={LoginS}/>
-                <Route path="/app" component={AppS}/>
+                <Route exact path="/" component={Login}/>
+                <Route path="/app" component={App}/>
             </div>
         </Router>
     </Provider>
     ,
     document.getElementById('app')
 );
-
-
-//没装Babel,react时的方法
-// var greeter=require('./components/Component1.js');
-//
-// document.getElementById('content').appendChild(greeter());

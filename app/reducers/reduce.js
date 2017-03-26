@@ -9,19 +9,15 @@ import {combineReducers} from 'redux'
 
 
 const rootReducer = function (state, action) {
-    // let new_state = Object.assign({}, state);
     let arr= state.todos.slice();
     switch (action.type) {
         case LOGIN:
             console.log(LOGIN);
-            return Object.assign({}, state, {value: action.value});//state为对象
+            return Object.assign({}, state, {value: action.value});
         case LOGOUT:
             console.log(LOGOUT);
             return Object.assign({}, state, {currentUser:null});
-        case WINDOWRELOAD://////////////////////////////////////////////
-            console.log(WINDOWRELOAD);
-            window.location.reload();
-            return state;
+
         
         case SIGNUP:
             console.log(SIGNUP);

@@ -2,13 +2,13 @@
  * Created by Elliott on 2017/3/23.
  */
 import React from 'react';
-import HeaderS from '../components/HeaderS.js';
-import ListS from '../components/ListS.js';
-import FooterS from '../components/FooterS';
+import Header from '../components/Header.js';
+import List from '../components/List.js';
+import Footer from '../components/Footer';
 import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 
-class App extends React.Component {
+class AppUI extends React.Component {
     render() {
         if (this.props.currentUser == null) {
             return (
@@ -17,9 +17,9 @@ class App extends React.Component {
         } else {
             return (
                 <div>
-                    <HeaderS/>
-                    <ListS/>
-                    <FooterS/>
+                    <Header/>
+                    <List/>
+                    <Footer/>
                 </div>
             )
         }
@@ -29,7 +29,7 @@ const mapStateToProps = (state) => ({
     currentUser: state.currentUser
 })
 
-const AppS = connect(
+const App = connect(
     mapStateToProps
-)(App)
-export default AppS;
+)(AppUI)
+export default App;

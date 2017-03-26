@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import {checkItem,deleteItem} from '../actions/actionCreators'
 
 
-class Item extends React.Component{
+class ItemUI extends React.Component{
     handlerChange() {
         let isDone = !this.props.isDone;
         this.props.checkItem(this.props.index, isDone);
@@ -48,8 +48,8 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(deleteItem(index));
     }
 })
-const ItemS= connect(
+const Item= connect(
     mapStateToProps,
     mapDispatchToProps
-)(Item)
-export default ItemS;
+)(ItemUI)
+export default Item;

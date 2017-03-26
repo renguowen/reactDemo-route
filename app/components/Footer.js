@@ -6,11 +6,11 @@ import {Checkbox, Button } from 'antd';
 import { connect } from 'react-redux'
 import {checkAll,toggleChecked,cleanChecked} from '../actions/actionCreators'
 
-class Footer extends React.Component{
+class FooterUI extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="Footer">
                 <label>
                     <Checkbox checked={this.props.isAll} onClick={this.props.checkAll}/>全选
                 </label>
@@ -35,9 +35,9 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(cleanChecked());
     },
 })
-const FooterS= connect(
+const Footer= connect(
     mapStateToProps,
     mapDispatchToProps
-)(Footer)
-export  default FooterS;
+)(FooterUI)
+export  default Footer;
     

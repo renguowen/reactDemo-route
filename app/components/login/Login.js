@@ -20,8 +20,8 @@ class LF extends React.Component{
             )
         }else{
             return (
-                <div>
-                    <h1>React-Todos</h1>
+                <div className="Login">
+                    <h1>React_TodoMVC-router-redux</h1>
                     <RadioGroup value={this.props.value} onChange={this.props.onChange}>
                         <Radio value={1}>注册</Radio>
                         <Radio value={2}>登入</Radio>
@@ -73,8 +73,8 @@ const mapDispatchToProps = (dispatch)=>({
         if(e.target.value==2){dispatch(login())}
     }
 })
-const LoginS = connect(
+const Login = connect(
     mapStateToProps,
     mapDispatchToProps
 )(lf)
-export default LoginS
+export default Login

@@ -10,8 +10,7 @@ const initStore={
             isAll: false,
             currentUser:null,
             value: 1,
-            todoId:null,
-    test:1
+            todoId:null
 };
 
 const middleware = [ thunk ];
