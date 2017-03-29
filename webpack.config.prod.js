@@ -1,9 +1,6 @@
 /**
  * Created by Elliott on 2017/3/29.
  */
-/**
- * Created by Elliott on 2017/3/16.
- */
 var webpack = require('webpack');
 
 module.exports = {
