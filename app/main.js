@@ -6,18 +6,18 @@ import ReactDom from 'react-dom';
 
 import Login from'./components/login/Login';
 import './css/index.styl'
-// import App from'./components/app';
-import App from'./containers/app';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
 
-import {Provider} from 'react-redux'
+import App from'./containers/app';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+import {Provider} from 'react-redux';
 import store from './store';
 
 ReactDom.render(
     <Provider store={store}>
         <Router>
             <div>
-                <Route exact path="/" component={Login}/>
+                <Route path="/" component={Login}/>
                 <Route path="/app" component={App}/>
             </div>
         </Router>
@@ -25,3 +25,4 @@ ReactDom.render(
     ,
     document.getElementById('app')
 );
+

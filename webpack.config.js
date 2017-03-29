@@ -12,25 +12,18 @@ module.exports = {
     },
 
     module: {
-        loaders: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
-            {
-                test: /\.json$/,
-                loader: "json-loader"
-            },
-            {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader'
-            },
-            {
-                test: /\.styl$/,
-                loader: "style-loader!css-loader!stylus-loader"
-            }
-        ]
+        rules: [{
+            test: /\.(js|jsx)$/,
+            use: ['babel-loader'],
+            exclude: /node_modules/
+        }, {
+            test: /\.(css)$/,
+            use: ["style-loader", "css-loader"]
+        },{
+            test: /\.styl$/,
+            use:["style-loader","css-loader","stylus-loader"]
+        }]
+
     },
 
     plugins: [
